@@ -19,8 +19,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Check Rust version
-        run: rustc --version
+      - name: Install Rust stable
+        uses: dtolnay/rust-action@stable
 
       - name: Install dependencies (Ubuntu)
         if: matrix.platform == 'ubuntu-latest'
@@ -59,29 +59,4 @@ jobs:
           name: ai-data-analyst-linux
           path: |
             src-tauri/target/release/bundle/deb/*.deb
-            src-tauri/target/release/bundle/appimage/*.AppImage        - name: Upload artifact (Windows)                                                                                                                                           
-          if: matrix.platform == 'windows-latest'                                                                                                                                   
-          uses: actions/upload-artifact@v4                                                                                                                                          
-          with:                                                                                                                                                                     
-            name: ai-data-analyst-windows                                                                                                                                           
-            path: |                                                                                                                                                                 
-              src-tauri/target/release/AI Data Analyst.exe                                                                                                                          
-              src-tauri/target/release/bundle/msi/*.msi                                                                                                                             
-                                                                                                                                                                                    
-        - name: Upload artifact (macOS)                                                                                                                                             
-          if: matrix.platform == 'macos-latest'                                                                                                                                     
-          uses: actions/upload-artifact@v4                                                                                                                                          
-          with:                                                                                                                                                                     
-            name: ai-data-analyst-macos                                                                                                                                             
-            path: |                                                                                                                                                                 
-              src-tauri/target/release/bundle/macos/*.app                                                                                                                           
-              src-tauri/target/release/bundle/dmg/*.dmg                                                                                                                             
-                                                                                                                                                                                    
-        - name: Upload artifact (Linux)                                                                                                                                             
-          if: matrix.platform == 'ubuntu-latest'                                                                                                                                    
-          uses: actions/upload-artifact@v4                                                                                                                                          
-          with:                                                                                                                                                                     
-            name: ai-data-analyst-linux                                                                                                                                             
-            path: |                                                                                                                                                                 
-              src-tauri/target/release/bundle/deb/*.deb                                                                                                                             
-              src-tauri/target/release/bundle/appimage/*.AppImage    
+            src-tauri/target/release/bundle/appimage/*.AppImage
