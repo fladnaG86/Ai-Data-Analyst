@@ -1,0 +1,32 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "AI Data Analyst",
+  "version": "7.3.0",
+  "identifier": "com.maurizio.ai-data-analyst",
+  "build": {
+    "frontendDist": "../src",
+    "devUrl": "../src"
+  },
+  "app": {
+    "withGlobalTauri": true,
+    "windows": [
+      {
+        "title": "AI Data Analyst Local + Cloud",
+        "width": 1400,
+        "height": 900,
+        "minWidth": 900,
+        "minHeight": 600,
+        "center": true,
+        "resizable": true
+      }
+    ],
+    "security": {
+      "csp": "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; connect-src 'self' http://localhost:1234 http://localhost:11434; img-src 'self' data: blob:; media-src 'self' blob:;"
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": ["msi"],
+    "icon": []
+  }
+}

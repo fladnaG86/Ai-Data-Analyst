@@ -1,0 +1,12 @@
+[package]
+name = "ai-data-analyst"
+version = "7.3.0"
+description = "AI Data Analyst Local + Cloud"
+authors = ["Maurizio Lan"]
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "2.0.0", features = [] }
+
+[dependencies]
+tauri = { version = "2.0.0", features = [] }
